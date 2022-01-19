@@ -88,7 +88,7 @@ Formát výstupného XLSX súboru [iban.xlsx](iban.xlsx) :
 |                           |              | SK2881300000002006760405 |          |                                     |                             |       |      |                        |                       |
 |                           |              | SK3381300000002006760800 |          |                                     |                             |       |      |                        |                       |
 
-## Poznámky s Obmedzenia
+## Poznámky a obmedzenia
 
 * V prípade, že dané IČ DPH má zaregistrovaných viacero účtov, tieto sú uvedené v samostatných riadkoch pod ním a je vyplnené len pole `IBAN`
 * V prípade, že nie je možné dané IČ DPH vyhľadať, tak sú vyplnené len polia `ic_dph`, `interny_nazov` a `error`
