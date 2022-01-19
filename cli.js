@@ -1,11 +1,11 @@
-require("dotenv").config();
+require("dotenv").config({ path: __dirname + "/.env" });
 
 const { getDataByIcDph, setApiKey } = require("./financnasprava");
 const { readExcel, writeExcel } = require("./excel");
 
 setApiKey(process.env.API_KEY);
 
-(async () => {
+module.exports = async () => {
   let clArgs = process.argv.slice(2);
   let verbose = false;
   let useExcel = null;
@@ -106,7 +106,7 @@ setApiKey(process.env.API_KEY);
   } else {
     console.log(allOutputData);
   }
-})();
+};
 
 function help(errorMessage = undefined) {
   console.log(
@@ -120,13 +120,13 @@ Autor: Miro Bartánus, Dynatech s.r.o., 19.1.2022."
   }
 
   console.log("\nPoužitie:");
-  console.log("\tnode index.js -h");
-  console.log("\tnode index.js [-v] IC_DPH1 IC_DPH2 IC_DPH3 ...");
-  console.log("\tnode index.js [-v] in.xlsx");
-  console.log("\tnode index.js [-v] in.xlsx out.xlsx");
+  console.log("\ticdph-iban -h");
+  console.log("\ticdph-iban [-v] IC_DPH1 IC_DPH2 IC_DPH3 ...");
+  console.log("\ticdph-iban [-v] in.xlsx");
+  console.log("\ticdph-iban [-v] in.xlsx out.xlsx");
 
   console.log("\nPríklady:");
-  console.log("\tnode index.js SK2020269922");
-  console.log("\tnode index.js icdph.xlsx");
-  console.log("\tnode index.js -v icdph.xlsx iban.xlsx");
+  console.log("\ticdph-iban SK2020269922");
+  console.log("\ticdph-iban icdph.xlsx");
+  console.log("\ticdph-iban -v icdph.xlsx iban.xlsx");
 }
