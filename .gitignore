@@ -1,0 +1,5 @@
+# Dependency directories
+node_modules/
+
+# Do not commit dotenv .env, use .env.example as a source for local .env
+.env
