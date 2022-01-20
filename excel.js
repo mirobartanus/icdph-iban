@@ -9,17 +9,16 @@ function readExcel(fileName, sheetName = undefined) {
   return X.utils.sheet_to_json(ws, { header: 0 });
 }
 
-function writeExcel(fileName, data, sheetName = undefined) {
+function writeExcel(
+  fileName,
+  data,
+  excelProps = undefined,
+  sheetName = undefined
+) {
   var wb = X.utils.book_new();
   sheetName = sheetName || "data";
 
-  wb.Props = {
-    Title: "IČ DPH na IBAN konverzia",
-    Author: "Miro Bartánus",
-    Company: "Dynatech s.r.o.",
-    Comments: "Používa opendata.financnasprava.sk API",
-    CreatedDate: new Date(),
-  };
+  excelProps && (wb.Props = excelProps);
 
   wb.SheetNames.push(sheetName);
 
